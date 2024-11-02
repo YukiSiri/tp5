@@ -1,0 +1,59 @@
+### Test de la route GET /
+GET http://127.0.0.1:8000/
+###
+
+### Test de la route GET /miscellaneous/addition avec des paramètres query
+GET http://127.0.0.1:8000/miscellaneous/addition?a=5&b=10
+###
+
+### Création d'un utilisateur via POST /users
+POST http://127.0.0.1:8000/users
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+###
+
+### Obtenir un token d'authentification via POST /token
+POST http://127.0.0.1:8000/token
+Content-Type: application/x-www-form-urlencoded
+
+username=testuser&password=testpassword
+###
+
+### --- Copiez le token d'accès reçu ci-dessus et remplacez {{access_token}} dans les requêtes suivantes ---
+
+### Récupérer les informations de l'utilisateur authentifié via GET /users/me
+GET http://127.0.0.1:8000/users/me
+Authorization: Bearer {{access_token}}
+###
+
+### Ajouter une tâche TODO via POST /users/me/todo
+POST http://127.0.0.1:8000/users/me/todo
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "name": "First Task",
+  "description": "This is the first task",
+  "priority": 1
+}
+###
+
+### Ajouter une seconde tâche TODO via POST /users/me/todo
+POST http://127.0.0.1:8000/users/me/todo
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "name": "Second Task",
+  "description": "This is the second task",
+  "priority": 2
+}
+###
+
+### Récupérer toutes les tâches triées par priorité via GET /users/me/todo
+GET http://127.0.0.1:8000/users/me/todo
+Authorization: Bearer {{access_token}}
