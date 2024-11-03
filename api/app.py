@@ -1,7 +1,14 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from typing import Optional
 
-app = FastAPI(description="TP5 API")
+app = FastAPI()
 
-@app.get
-def root():
+@app.get("/")
+async def read_root():
     return {}
+
+@app.get("/miscellaneous/addition")
+async def addition(a: Optional[float] = None, b: Optional[float] = None):
+    if a is None or b is None:
+        raise HTTPException(status_code=400, detail="Both query parameters 'a' and 'b' are required")
+    return {"result": a + b}
