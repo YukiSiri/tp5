@@ -27,12 +27,12 @@ username=testuser&password=testpassword
 
 ### Récupérer les informations de l'utilisateur authentifié via GET /users/me
 GET http://127.0.0.1:8000/users/me
-Authorization: Bearer {{access_token}}
+#Authorization: Bearer {{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTczMDQ2OTE0Mn0.Slliwr-Wrj_jYCkrWlo_i0koqZYmQX7Lw-z5I3gzy8c}}
 ###
 
 ### Ajouter une tâche TODO via POST /users/me/todo
 POST http://127.0.0.1:8000/users/me/todo
-Authorization: Bearer {{access_token}}
+#Authorization: Bearer {{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTczMDQ2OTE0Mn0.Slliwr-Wrj_jYCkrWlo_i0koqZYmQX7Lw-z5I3gzy8c}}
 Content-Type: application/json
 
 {
@@ -44,7 +44,7 @@ Content-Type: application/json
 
 ### Ajouter une seconde tâche TODO via POST /users/me/todo
 POST http://127.0.0.1:8000/users/me/todo
-Authorization: Bearer {{access_token}}
+#Authorization: Bearer {{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTczMDQ2OTE0Mn0.Slliwr-Wrj_jYCkrWlo_i0koqZYmQX7Lw-z5I3gzy8c}}
 Content-Type: application/json
 
 {
@@ -56,4 +56,4 @@ Content-Type: application/json
 
 ### Récupérer toutes les tâches triées par priorité via GET /users/me/todo
 GET http://127.0.0.1:8000/users/me/todo
-Authorization: Bearer {{access_token}}
+#Authorization: Bearer {{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTczMDQ2OTE0Mn0.Slliwr-Wrj_jYCkrWlo_i0koqZYmQX7Lw-z5I3gzy8c}}
